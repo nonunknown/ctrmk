@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Theme/Panel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Theme/rtl_regular.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Theme/CrashLike50.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/SourceCheck.cs" type="Script" id=4]
+[ext_resource path="res://scripts/AnimateText.gd" type="Script" id=5]
+
+[node name="SourceCheck" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" parent="." instance=ExtResource( 1 )]
+margin_left = 40.0
+margin_top = 82.0
+margin_right = -41.0
+margin_bottom = -83.0
+
+[node name="VBoxContainer" parent="Panel" index="0"]
+custom_constants/separation = 31
+
+[node name="CrashLike50" parent="Panel/VBoxContainer" index="0" instance=ExtResource( 3 )]
+margin_right = 1159.0
+margin_bottom = 42.0
+text = "Extracting ctr source files"
+align = 1
+
+[node name="rtl_regular" parent="Panel/VBoxContainer" index="1" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 73.0
+margin_right = 1159.0
+margin_bottom = 277.0
+rect_min_size = Vector2( 0, 120 )
+bbcode_text = "
+In order to extract ctr files:
+
+* install a program like [url=\"https://www.poweriso.com/download.php\"]POWERISO[/url].
+* Go to [url=\"/ctr_source\"]/workbench/ctr_source[/url] folder.
+* Extract CTR files on there."
+text = "
+In order to extract ctr files:
+
+* install a program like POWERISO.
+* Go to /workbench/ctr_source folder.
+* Extract CTR files on there."
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" index="2"]
+margin_top = 308.0
+margin_right = 1159.0
+margin_bottom = 350.0
+alignment = 1
+
+[node name="lb_msg" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 502.0
+margin_right = 657.0
+margin_bottom = 42.0
+text = "Waiting...."
+align = 1
+script = ExtResource( 5 )
+
+[connection signal="meta_clicked" from="Panel/VBoxContainer/rtl_regular" to="." method="OnMetaClicked"]
+
+[editable path="Panel"]

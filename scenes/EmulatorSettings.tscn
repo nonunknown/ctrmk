@@ -1,0 +1,254 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/EmulatorSettings.cs" type="Script" id=1]
+[ext_resource path="res://Theme/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Theme/CrashLike50.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Theme/Panel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/CRASH_BANDICOOT_ROUNDED.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://fonts/SUPER_WUMPA.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/SUPER_BONUS.TTF" type="DynamicFontData" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.803922 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="EmulatorSettings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" parent="." instance=ExtResource( 4 )]
+margin_left = 35.0
+margin_top = 21.0
+margin_right = -35.0
+margin_bottom = -20.0
+
+[node name="VBoxContainer" parent="Panel" index="0"]
+custom_constants/separation = 39
+
+[node name="CrashLike50" parent="Panel/VBoxContainer" index="0" instance=ExtResource( 3 )]
+margin_right = 1170.0
+margin_bottom = 42.0
+text = "Emulator settings"
+align = 1
+
+[node name="hb_emulator" type="HBoxContainer" parent="Panel/VBoxContainer" index="1"]
+margin_top = 81.0
+margin_right = 1170.0
+margin_bottom = 123.0
+
+[node name="CrashLike50" parent="Panel/VBoxContainer/hb_emulator" instance=ExtResource( 3 )]
+margin_right = 220.0
+margin_bottom = 42.0
+text = "emulator : "
+
+[node name="ob_emulator" type="OptionButton" parent="Panel/VBoxContainer/hb_emulator"]
+margin_left = 224.0
+margin_right = 1170.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_constants/arrow_margin = 27
+text = "None"
+align = 1
+items = [ "None", null, false, 0, null, "No$PSX", null, false, 1, null, "BizHawk", null, false, 2, null, "Duckstation", null, false, 3, null, "ePSXe", null, false, 4, null ]
+selected = 0
+
+[node name="hb_exe" type="HBoxContainer" parent="Panel/VBoxContainer" index="2"]
+margin_top = 162.0
+margin_right = 1170.0
+margin_bottom = 212.0
+
+[node name="CrashLike50" parent="Panel/VBoxContainer/hb_exe" instance=ExtResource( 3 )]
+margin_top = 4.0
+margin_right = 230.0
+margin_bottom = 46.0
+text = ".exe path : "
+
+[node name="le_exe" type="LineEdit" parent="Panel/VBoxContainer/hb_exe"]
+margin_left = 234.0
+margin_right = 1066.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+
+[node name="bt_open_exe" parent="Panel/VBoxContainer/hb_exe" instance=ExtResource( 2 )]
+margin_left = 1070.0
+margin_right = 1170.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 1
+disabled = true
+text = "..."
+
+[node name="hb_bios" type="HBoxContainer" parent="Panel/VBoxContainer" index="3"]
+margin_top = 251.0
+margin_right = 1170.0
+margin_bottom = 301.0
+
+[node name="CrashLike50" parent="Panel/VBoxContainer/hb_bios" instance=ExtResource( 3 )]
+margin_top = 4.0
+margin_right = 236.0
+margin_bottom = 46.0
+text = "bios path : "
+
+[node name="le_bios" type="LineEdit" parent="Panel/VBoxContainer/hb_bios"]
+margin_left = 240.0
+margin_right = 1066.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+
+[node name="bt_open_bios" parent="Panel/VBoxContainer/hb_bios" instance=ExtResource( 2 )]
+margin_left = 1070.0
+margin_right = 1170.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 1
+disabled = true
+text = "..."
+
+[node name="hb_cue" type="HBoxContainer" parent="Panel/VBoxContainer" index="4"]
+margin_top = 340.0
+margin_right = 1170.0
+margin_bottom = 390.0
+
+[node name="CrashLike50" parent="Panel/VBoxContainer/hb_cue" instance=ExtResource( 3 )]
+margin_top = 4.0
+margin_right = 232.0
+margin_bottom = 46.0
+text = ".cue path : "
+
+[node name="le_cue" type="LineEdit" parent="Panel/VBoxContainer/hb_cue"]
+margin_left = 236.0
+margin_right = 1066.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+
+[node name="bt_open_cue" parent="Panel/VBoxContainer/hb_cue" instance=ExtResource( 2 )]
+margin_left = 1070.0
+margin_right = 1170.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 1
+disabled = true
+text = "..."
+
+[node name="hb_cue2" type="HBoxContainer" parent="Panel/VBoxContainer" index="5"]
+margin_top = 429.0
+margin_right = 1170.0
+margin_bottom = 479.0
+
+[node name="bt_open_cue" parent="Panel/VBoxContainer/hb_cue2" instance=ExtResource( 2 )]
+margin_right = 1170.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+text = "I Dont have \".CUE\" file"
+
+[node name="hb_cue3" type="HBoxContainer" parent="Panel/VBoxContainer" index="6"]
+margin_top = 518.0
+margin_right = 1170.0
+margin_bottom = 553.0
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/hb_cue3"]
+margin_right = 1170.0
+margin_bottom = 35.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.513726, 0, 1 )
+custom_constants/hseparation = 31
+shortcut_in_tooltip = false
+text = "Skip This Window next time"
+
+[node name="hb_buttons" type="HBoxContainer" parent="Panel/VBoxContainer" index="7"]
+margin_top = 592.0
+margin_right = 1170.0
+margin_bottom = 642.0
+
+[node name="bt_cancel" parent="Panel/VBoxContainer/hb_buttons" instance=ExtResource( 2 )]
+margin_right = 387.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+disabled = true
+text = "cancel"
+
+[node name="bt_test" parent="Panel/VBoxContainer/hb_buttons" instance=ExtResource( 2 )]
+margin_left = 391.0
+margin_right = 778.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+disabled = true
+text = "test emulator"
+
+[node name="bt_done" parent="Panel/VBoxContainer/hb_buttons" instance=ExtResource( 2 )]
+margin_left = 782.0
+margin_right = 1170.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+disabled = true
+text = "Done"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -585.0
+margin_top = -298.0
+margin_right = 585.0
+margin_bottom = 299.0
+popup_exclusive = true
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/Users/nonunknown/Desktop/projects/ctrmk"
+current_path = "/Users/nonunknown/Desktop/projects/ctrmk/"
+
+[connection signal="item_selected" from="Panel/VBoxContainer/hb_emulator/ob_emulator" to="." method="OnOBSelected"]
+[connection signal="pressed" from="Panel/VBoxContainer/hb_exe/bt_open_exe" to="." method="OnBtExePressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/hb_bios/bt_open_bios" to="." method="OnBtBiosPressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/hb_cue/bt_open_cue" to="." method="OnBtCuePressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/hb_cue2/bt_open_cue" to="." method="OnBtCuePressed"]
+[connection signal="toggled" from="Panel/VBoxContainer/hb_cue3/CheckBox" to="." method="OnCBNextTime"]
+[connection signal="pressed" from="Panel/VBoxContainer/hb_buttons/bt_test" to="." method="OnTestPressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/hb_buttons/bt_done" to="." method="OnBtDonePressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="OnFileSelected"]
+
+[editable path="Panel"]
